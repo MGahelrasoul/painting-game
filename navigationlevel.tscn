@@ -40,3 +40,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.976457, 0)
 
 [node name="Player3D" parent="." instance=ExtResource("2_di8hr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+floor_constant_speed = true
