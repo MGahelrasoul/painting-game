@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b24paoytifvee"]
 
-[ext_resource type="Script" path="res://navigation_level.gd" id="1_i0ara"]
+[ext_resource type="Script" path="res://game.gd" id="1_0tp06"]
 [ext_resource type="PackedScene" uid="uid://uah4tbr2rngq" path="res://level/Level.tscn" id="2_2fbvs"]
 [ext_resource type="PackedScene" uid="uid://dkoddcuh26v5o" path="res://customers/NavigationNPC.tscn" id="3_q5itn"]
 [ext_resource type="PackedScene" uid="uid://cgbcxgm67lcw" path="res://menu/pause_menu.tscn" id="4_3birv"]
@@ -12,7 +12,7 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [node name="World" type="NavigationRegion3D"]
 navigation_mesh = SubResource("NavigationMesh_ijxjm")
-script = ExtResource("1_i0ara")
+script = ExtResource("1_0tp06")
 
 [node name="Level" parent="." instance=ExtResource("2_2fbvs")]
 
