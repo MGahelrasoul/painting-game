@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://yyxrkhtquf80"]
+[gd_scene load_steps=7 format=3 uid="uid://yyxrkhtquf80"]
 
 [ext_resource type="PackedScene" uid="uid://dkoddcuh26v5o" path="res://NavigationNPC.tscn" id="1_0d35k"]
+[ext_resource type="PackedScene" uid="uid://cqgupte405btw" path="res://player/player_3d.tscn" id="2_di8hr"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ijxjm"]
 vertices = PackedVector3Array(-4.5, 0.5, -4.5, -4.5, 0.5, 4.5, 4.5, 0.5, 4.5, 4.5, 0.5, -4.5)
@@ -37,5 +38,5 @@ size = Vector3(10, 1, 10)
 [node name="NavigationNPC" parent="." instance=ExtResource("1_0d35k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.976457, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8, 0)
+[node name="Player3D" parent="." instance=ExtResource("2_di8hr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
