@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://yyxrkhtquf80"]
 
-[ext_resource type="PackedScene" uid="uid://dkoddcuh26v5o" path="res://customers/NavigationNPC.tscn" id="1_0d35k"]
-[ext_resource type="PackedScene" uid="uid://uah4tbr2rngq" path="res://level/Level.tscn" id="1_3yru8"]
+[ext_resource type="PackedScene" uid="uid://uah4tbr2rngq" path="res://level/Level.tscn" id="1_no704"]
+[ext_resource type="PackedScene" uid="uid://dkoddcuh26v5o" path="res://customers/NavigationNPC.tscn" id="2_pwfu3"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ijxjm"]
 vertices = PackedVector3Array(-4.5, 0.5, -4.5, -4.5, 0.5, 4.5, 4.5, 0.5, 4.5, 4.5, 0.5, -4.5)
@@ -10,9 +10,9 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 [node name="NavigationRegion3D" type="NavigationRegion3D"]
 navigation_mesh = SubResource("NavigationMesh_ijxjm")
 
-[node name="Level" parent="." instance=ExtResource("1_3yru8")]
+[node name="Level" parent="." instance=ExtResource("1_no704")]
 
-[node name="NavigationNPC" parent="." instance=ExtResource("1_0d35k")]
+[node name="NavigationNPC" parent="." instance=ExtResource("2_pwfu3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.976457, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]

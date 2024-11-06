@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-const NAVIGATION_LEVEL = preload("res://NavigationLevel.tscn")
+const NAVIGATION_LEVEL = preload("res://navigation_level.tscn")
 
 func _on_new_game_button_pressed() -> void:
 	get_tree().change_scene_to_packed(NAVIGATION_LEVEL)
