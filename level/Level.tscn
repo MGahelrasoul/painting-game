@@ -1,0 +1,79 @@
+[gd_scene load_steps=13 format=3 uid="uid://uah4tbr2rngq"]
+
+[ext_resource type="Shader" uid="uid://bbxpi0577x04o" path="res://level/Level.tres" id="1_le6mi"]
+[ext_resource type="Texture2D" uid="uid://bqpwydc25r84l" path="res://level/moon.png" id="2_2qd86"]
+[ext_resource type="Texture2D" uid="uid://c02dkpob8gt8i" path="res://level/checkboard.png" id="3_p0m2k"]
+
+[sub_resource type="Curve" id="Curve_4c7sk"]
+_data = [Vector2(0.332, 0.039), 0.0, 0.0, 0, 0, Vector2(0.697, 1), 0.513, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_otsry"]
+curve = SubResource("Curve_4c7sk")
+
+[sub_resource type="Gradient" id="Gradient_vcx13"]
+offsets = PackedFloat32Array(0.784, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lh7a3"]
+frequency = 0.3589
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0yoka"]
+width = 1024
+height = 1024
+generate_mipmaps = false
+seamless = true
+color_ramp = SubResource("Gradient_vcx13")
+noise = SubResource("FastNoiseLite_lh7a3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cxkbf"]
+shader = ExtResource("1_le6mi")
+shader_parameter/top_color = Color(0.164706, 0.603922, 0.956863, 1)
+shader_parameter/bottom_color = Color(0.678431, 0.952941, 0.976471, 1)
+shader_parameter/moon_direction = Vector3(-1.095, 0.68, 0)
+shader_parameter/moon_size = 0.045
+shader_parameter/gradient_curve = SubResource("CurveTexture_otsry")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_0yoka")
+shader_parameter/moon_texture = ExtResource("2_2qd86")
+
+[sub_resource type="Sky" id="Sky_gxth1"]
+sky_material = SubResource("ShaderMaterial_cxkbf")
+
+[sub_resource type="Environment" id="Environment_dvhcd"]
+background_mode = 2
+sky = SubResource("Sky_gxth1")
+ambient_light_source = 3
+ambient_light_color = Color(1, 0.784314, 0.568627, 1)
+ambient_light_sky_contribution = 0.0
+tonemap_mode = 2
+tonemap_exposure = 1.05
+tonemap_white = 0.95
+ssao_enabled = true
+ssao_radius = 2.0
+ssao_intensity = 1.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wytmi"]
+albedo_color = Color(0.294118, 1, 0.294118, 1)
+albedo_texture = ExtResource("3_p0m2k")
+roughness = 0.85
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 10.0
+
+[node name="Level" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dvhcd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.328122, 0.941386, -0.0782872, 0.688392, 0.295045, 0.66262, 0.646879, 0.163528, -0.744853, -47.229, 26.883, -28.021)
+light_energy = 0.53
+shadow_enabled = true
+directional_shadow_max_distance = 40.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(50, 1, 50)
+material = SubResource("StandardMaterial3D_wytmi")
