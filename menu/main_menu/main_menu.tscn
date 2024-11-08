@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://menu/main_menu/main_menu.gd" id="1_78xh0"]
 [ext_resource type="Theme" uid="uid://dnikvndd31rjb" path="res://menu/resources/menu_theme.tres" id="2_x2ocf"]
 [ext_resource type="PackedScene" uid="uid://uah4tbr2rngq" path="res://levels/level.tscn" id="2_yb7jw"]
-[ext_resource type="PackedScene" uid="uid://dkoddcuh26v5o" path="res://customers/navigation_npc.tscn" id="3_gxgkk"]
+[ext_resource type="PackedScene" uid="uid://dhlaso20x8fnk" path="res://customers/navigation_npc.tscn" id="3_gxgkk"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ijxjm"]
 vertices = PackedVector3Array(-4.5, 0.5, -4.5, -4.5, 0.5, 4.5, 4.5, 0.5, 4.5, 4.5, 0.5, -4.5)

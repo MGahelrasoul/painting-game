@@ -3,7 +3,7 @@ extends CharacterBody3D
 var _step_time := 0.0
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
-@onready var _player_walk: AudioStreamPlayer3D = $PlayerAudio/PlayerWalk
+@onready var _player_walk: AudioStreamPlayer3D = $PlayerAudio/PlayerWalk3D
 @onready var navigation_npc: CharacterBody3D = $"."
 
 func _unhandled_input(event: InputEvent) -> void:

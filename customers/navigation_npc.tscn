@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhlaso20x8fnk"]
 
 [ext_resource type="Script" path="res://customers/navigation_npc.gd" id="1_6brvf"]
-[ext_resource type="AudioStream" uid="uid://b62vi7u0hncnw" path="res://audio/195014__punpcklbw__walk01.wav" id="2_jbsgc"]
+[ext_resource type="AudioStream" uid="uid://bi12skduwypso" path="res://audio/step.wav" id="2_s1dq7"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jnlhq"]
 
@@ -23,6 +23,5 @@ debug_enabled = true
 [node name="PlayerAudio" type="Node3D" parent="."]
 visible = false
 
-[node name="PlayerWalk" type="AudioStreamPlayer3D" parent="PlayerAudio"]
-stream = ExtResource("2_jbsgc")
-volume_db = -30.0
+[node name="PlayerWalk3D" type="AudioStreamPlayer3D" parent="PlayerAudio"]
+stream = ExtResource("2_s1dq7")

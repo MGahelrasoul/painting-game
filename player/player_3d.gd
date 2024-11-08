@@ -22,7 +22,7 @@ var _step_time := 0.0
 @onready var _camera_pivot: Node3D = %CameraPivot
 @onready var _camera: Camera3D = %Camera3D
 @onready var _skin: SophiaSkin = %SophiaSkin
-@onready var _player_walk: AudioStreamPlayer3D = $PlayerAudio/PlayerWalk
+@onready var _player_walk: AudioStreamPlayer = $PlayerAudio/PlayerWalk
 
 # Handle game window focus
 func _input(event: InputEvent) -> void:
