@@ -16,6 +16,7 @@ extends CharacterBody3D
 var _camera_input_direction := Vector2.ZERO
 var _last_movement_direction := Vector3.BACK
 var _gravity := -30.0
+var _mouse_pos = Vector2.ZERO
 
 @onready var _camera_pivot: Node3D = %CameraPivot
 @onready var _camera: Camera3D = %Camera3D
@@ -23,10 +24,16 @@ var _gravity := -30.0
 
 # Handle game window focus
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("left_click"):
+	#if event.is_action_pressed("left_click"):
+		#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("right_click"):
+		_mouse_pos = get_viewport().get_mouse_position()
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_released("right_click"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		Input.warp_mouse(_mouse_pos)
+	
 
 # Handle camera input
 func _unhandled_input(event: InputEvent) -> void:
