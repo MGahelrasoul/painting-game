@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgg4qxvfd6tho"]
-
-[ext_resource type="AudioStream" uid="uid://we3jt8p4f6dn" path="res://モエチャッカファイア  弌誠MUSIC VIDEO.mp3" id="1_d2wl7"]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
-stream = ExtResource("1_d2wl7")
-autoplay = true

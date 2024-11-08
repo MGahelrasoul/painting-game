@@ -16,10 +16,12 @@ extends CharacterBody3D
 var _camera_input_direction := Vector2.ZERO
 var _last_movement_direction := Vector3.BACK
 var _gravity := -30.0
+var _step_time := 0.0
 
 @onready var _camera_pivot: Node3D = %CameraPivot
 @onready var _camera: Camera3D = %Camera3D
 @onready var _skin: SophiaSkin = %SophiaSkin
+@onready var _player_walk: AudioStreamPlayer3D = $PlayerAudio/PlayerWalk
 
 # Handle game window focus
 func _input(event: InputEvent) -> void:
@@ -27,6 +29,11 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+# Handle Audio Streams
+func _player_step_audio():
+	_player_walk.pitch_scale = randf_range(.8, 1.2)
+	_player_walk.play()
 
 # Handle camera input
 func _unhandled_input(event: InputEvent) -> void:
@@ -36,7 +43,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		_camera_input_direction.y = invert_y_axis * event.screen_relative.y * mouse_sensitivity
 
 # Handle physics
+
 func _physics_process(delta: float) -> void:
+	_step_time += delta
+
 	# Handle camera rotation
 	_camera_pivot.rotation.x += _camera_input_direction.y * delta
 	_camera_pivot.rotation.x = clamp(_camera_pivot.rotation.x, -PI / 3.0, PI / 3.0)
@@ -59,6 +69,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("sprint"):
 		target_speed  = sprint_speed
 		target_acceleration = sprint_acceleration
+		#if _step_time > 0.15:
+			#_step_time = 0
+			#_player_step_audio()
 		
 	var vertical_velocity := velocity.y
 	velocity.y = 0.0
@@ -90,6 +103,9 @@ func _physics_process(delta: float) -> void:
 		var ground_speed := horizontal_velocity.length()
 		if ground_speed > 0.0:
 			_skin.move()
+			if _step_time > 0.3:
+				_step_time = 0
+				_player_step_audio()
 		else:
 			_skin.idle()
 
