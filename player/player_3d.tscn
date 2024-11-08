@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqgupte405btw"]
+[gd_scene load_steps=7 format=3 uid="uid://cqgupte405btw"]
 
 [ext_resource type="PackedScene" uid="uid://prh35jb6tjtd" path="res://player/sophia_skin/sophia_skin.tscn" id="1_esk4g"]
 [ext_resource type="Script" path="res://player/player_3d.gd" id="1_lqrq4"]
 [ext_resource type="Script" path="res://player/camera_3d.gd" id="3_41jxt"]
+[ext_resource type="AudioStream" uid="uid://b62vi7u0hncnw" path="res://audio/195014__punpcklbw__walk01.wav" id="4_6ri5j"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hugfs"]
 radius = 0.292628
@@ -32,3 +33,9 @@ spring_length = 8.0
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 script = ExtResource("3_41jxt")
+
+[node name="PlayerAudio" type="Node3D" parent="."]
+
+[node name="PlayerWalk" type="AudioStreamPlayer3D" parent="PlayerAudio"]
+stream = ExtResource("4_6ri5j")
+volume_db = -30.0
