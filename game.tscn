@@ -1,19 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://yyxrkhtquf80"]
+[gd_scene load_steps=7 format=3 uid="uid://yyxrkhtquf80"]
 
-[ext_resource type="PackedScene" uid="uid://uah4tbr2rngq" path="res://level/Level.tscn" id="1_kp1fs"]
-[ext_resource type="PackedScene" uid="uid://dkoddcuh26v5o" path="res://customers/NavigationNPC.tscn" id="2_2553m"]
+[ext_resource type="Script" path="res://game.gd" id="1_0xve4"]
+[ext_resource type="PackedScene" uid="uid://uah4tbr2rngq" path="res://levels/level.tscn" id="1_kp1fs"]
+[ext_resource type="PackedScene" uid="uid://dkoddcuh26v5o" path="res://customers/navigation_npc.tscn" id="2_2553m"]
 [ext_resource type="PackedScene" uid="uid://cqgupte405btw" path="res://player/player_3d.tscn" id="3_f8tyu"]
+[ext_resource type="PackedScene" uid="uid://cgbcxgm67lcw" path="res://menu/pause_menu/pause_menu.tscn" id="4_623kh"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ijxjm"]
-vertices = PackedVector3Array(-4.5, 0.5, -4.5, -4.5, 0.5, 4.5, 4.5, 0.5, 4.5, 4.5, 0.5, -4.5)
+vertices = PackedVector3Array(-24.5, 0.5, -24.5, -24.5, 0.5, 24.5, 24.5, 0.5, 24.5, 24.5, 0.5, -24.5)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D"]
 navigation_mesh = SubResource("NavigationMesh_ijxjm")
+script = ExtResource("1_0xve4")
 
 [node name="Level" parent="." instance=ExtResource("1_kp1fs")]
 
 [node name="NavigationNPC" parent="." instance=ExtResource("2_2553m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.976457, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.976458, 5)
 
 [node name="Player3D" parent="." instance=ExtResource("3_f8tyu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01958, 0)
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_623kh")]
