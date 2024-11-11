@@ -1,0 +1,125 @@
+[gd_scene load_steps=3 format=3 uid="uid://de1j0fj1r2jrg"]
+
+[ext_resource type="Script" path="res://menu/settings/settings.gd" id="1_i6arv"]
+[ext_resource type="PackedScene" uid="uid://vagor0yhqpka" path="res://audio/volume_slider.tscn" id="2_uogmg"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i6arv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Display Settings" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Resolutions" type="Label" parent="MarginContainer/VBoxContainer/Display Settings"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="ResolutionsOptions" type="OptionButton" parent="MarginContainer/VBoxContainer/Display Settings"]
+layout_mode = 2
+selected = 2
+item_count = 3
+popup/item_0/text = "1920x1080"
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+
+[node name="Fullscreen" type="Label" parent="MarginContainer/VBoxContainer/Display Settings"]
+layout_mode = 2
+text = "FullScreen"
+
+[node name="FullscreenOptions" type="OptionButton" parent="MarginContainer/VBoxContainer/Display Settings"]
+layout_mode = 2
+selected = 1
+item_count = 3
+popup/item_0/text = "FullScreen"
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless Windowed"
+popup/item_2/id = 2
+
+[node name="VSync" type="Label" parent="MarginContainer/VBoxContainer/Display Settings"]
+layout_mode = 2
+text = "VSync"
+
+[node name="VSyncOptions" type="OptionButton" parent="MarginContainer/VBoxContainer/Display Settings"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Enabled"
+popup/item_1/text = "Disabled"
+popup/item_1/id = 1
+
+[node name="Audio" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Audio Settings"
+
+[node name="Audio Settings" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Master" type="Label" parent="MarginContainer/VBoxContainer/Audio Settings"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MasterVolume" parent="MarginContainer/VBoxContainer/Audio Settings" instance=ExtResource("2_uogmg")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="Music" type="Label" parent="MarginContainer/VBoxContainer/Audio Settings"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="MusicVolume" parent="MarginContainer/VBoxContainer/Audio Settings" instance=ExtResource("2_uogmg")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="SFX" type="Label" parent="MarginContainer/VBoxContainer/Audio Settings"]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="SFXVolume" parent="MarginContainer/VBoxContainer/Audio Settings" instance=ExtResource("2_uogmg")]
+layout_mode = 2
+bus_name = "SFX"
+
+[node name="Ambient" type="Label" parent="MarginContainer/VBoxContainer/Audio Settings"]
+layout_mode = 2
+text = "Ambient Volume"
+
+[node name="AmbientVolume" parent="MarginContainer/VBoxContainer/Audio Settings" instance=ExtResource("2_uogmg")]
+layout_mode = 2
+bus_name = "Ambient"
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/Audio Settings"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Display Settings/ResolutionsOptions" to="." method="_on_resolutions_options_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Display Settings/FullscreenOptions" to="." method="_on_fullscreen_options_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Display Settings/VSyncOptions" to="." method="_on_v_sync_options_item_selected"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CloseButton" to="." method="_on_button_pressed"]

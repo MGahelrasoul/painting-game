@@ -38,3 +38,4 @@ script = ExtResource("3_41jxt")
 
 [node name="PlayerWalk" type="AudioStreamPlayer" parent="PlayerAudio"]
 stream = ExtResource("4_pern5")
+bus = &"SFX"

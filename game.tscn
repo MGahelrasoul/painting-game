@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://yyxrkhtquf80"]
+[gd_scene load_steps=9 format=3 uid="uid://yyxrkhtquf80"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_0xve4"]
 [ext_resource type="PackedScene" uid="uid://uah4tbr2rngq" path="res://levels/level.tscn" id="1_kp1fs"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cqgupte405btw" path="res://player/player_3d.tscn" id="3_f8tyu"]
 [ext_resource type="PackedScene" uid="uid://cgbcxgm67lcw" path="res://menu/pause_menu/pause_menu.tscn" id="4_623kh"]
 [ext_resource type="AudioStream" uid="uid://dxvfbu8njr12i" path="res://audio/344968__vkproduktion__forest-birds-plane.wav" id="6_4smpl"]
+[ext_resource type="PackedScene" uid="uid://de1j0fj1r2jrg" path="res://menu/settings/settings.tscn" id="6_6u83m"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ijxjm"]
 vertices = PackedVector3Array(-24.5, 0.5, -24.5, -24.5, 0.5, 24.5, 24.5, 0.5, 24.5, 24.5, 0.5, -24.5)
@@ -23,9 +24,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.976458, 5)
 [node name="Player3D" parent="." instance=ExtResource("3_f8tyu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01958, 0)
 
-[node name="PauseMenu" parent="." instance=ExtResource("4_623kh")]
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("4_623kh")]
 visible = false
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Settings" parent="UI" instance=ExtResource("6_6u83m")]
+visible = false
+
+[node name="AmbientNoise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_4smpl")
 autoplay = true
+bus = &"Ambient"
