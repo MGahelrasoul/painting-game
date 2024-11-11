@@ -17,6 +17,15 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 boot_splash/version="0.01"
 
+[audio]
+
+buses/default_bus_layout="res://audio/default_bus_layout.tres"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [global_group]
 
 Player=""

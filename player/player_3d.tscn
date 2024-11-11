@@ -39,6 +39,7 @@ script = ExtResource("3_41jxt")
 
 [node name="PlayerWalk" type="AudioStreamPlayer" parent="PlayerAudio"]
 stream = ExtResource("4_pern5")
+bus = &"SFX"
 
 [node name="PlayerInteractor" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_pad47")]
 player = NodePath("..")
