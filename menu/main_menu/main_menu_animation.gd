@@ -1,7 +1,7 @@
 extends NavigationRegion3D
 
 @onready var camera_pivot: Node3D = $CameraPivot
-@onready var settings: Control = $Settings
+@onready var settings: Control = $UI/Settings
 
 var rotation_speed = 8
 var settings_open = false

@@ -1,6 +1,6 @@
 extends Control
 
-@onready var main = $"../"
+@onready var main = $"../../"
 
 # Main Settings
 func _on_resolutions_options_item_selected(index: int) -> void:
