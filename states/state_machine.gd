@@ -5,13 +5,9 @@ extends Node
 var current_state : State
 var states: Dictionary = {}
 
-func _ready(): 
-	print ("hi")
+func _ready():
 	for child in get_children():
-		print ("hi ", child)
-		print ("hi ", State)
 		if child is State:
-			print ("hi ", child)
 			states[child.name.to_lower()] = child
 			child.Transitioned.connect(on_child_transition)
 			

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://customers/customer.gd" id="1_xw5t2"]
 [ext_resource type="AudioStream" uid="uid://bi12skduwypso" path="res://audio/step.wav" id="2_sm7wb"]
 [ext_resource type="Script" path="res://states/state_machine.gd" id="3_ecexl"]
-[ext_resource type="Script" path="res://states/customerwalk.gd" id="4_1j6sy"]
+[ext_resource type="Script" path="res://states/customer_walk.gd" id="4_w1djn"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jnlhq"]
 
@@ -33,5 +33,5 @@ script = ExtResource("3_ecexl")
 initial_state = NodePath("CustomerWalk")
 
 [node name="CustomerWalk" type="Node" parent="StateMachine" node_paths=PackedStringArray("customer")]
-script = ExtResource("4_1j6sy")
+script = ExtResource("4_w1djn")
 customer = NodePath("../..")

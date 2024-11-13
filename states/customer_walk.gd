@@ -11,7 +11,7 @@ func enter():
 func physics_update(delta: float):
 	var direction = destination.global_position - customer.global_position
 	
-	if direction.length() > 25:
+	if direction.length() > 0.2:
 		customer.velocity = direction.normalized() * move_speed
 	else: 
 		customer.velocity = Vector3()
