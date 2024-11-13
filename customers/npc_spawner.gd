@@ -1,6 +1,6 @@
 extends Node3D
 
-var navigation_npc = preload("res://customers/navigation_npc.tscn")
+var navigation_npc = preload("res://customers/customer.tscn")
 var customer = null
 
 func _process(_delta):
