@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://yyxrkhtquf80"]
+[gd_scene load_steps=14 format=3 uid="uid://yyxrkhtquf80"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_0xve4"]
 [ext_resource type="PackedScene" uid="uid://uah4tbr2rngq" path="res://levels/level.tscn" id="1_kp1fs"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dt6smv6ceiin8" path="res://customers/npc_spawner.tscn" id="6_bviyh"]
 [ext_resource type="PackedScene" uid="uid://dfjsqi1qerq3e" path="res://props/Paint_Easel.glb" id="6_kvahj"]
 [ext_resource type="PackedScene" uid="uid://de1j0fj1r2jrg" path="res://menu/settings/settings.tscn" id="8_hru64"]
+[ext_resource type="PackedScene" uid="uid://me4og2exxqtm" path="res://canvas/canvas.tscn" id="11_8lwet"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ijxjm"]
 vertices = PackedVector3Array(-24.5, 0.5, -24.5, -24.5, 0.5, 24.5, 24.5, 0.5, 24.5, 24.5, 0.5, -24.5)
@@ -63,3 +64,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.97151, 0.723234, 8.70068)
 
 [node name="Destination" type="Node3D" parent="." groups=["Destination"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49648, 1, 2.72468)
+
+[node name="Canvas" parent="." instance=ExtResource("11_8lwet")]
+visible = false

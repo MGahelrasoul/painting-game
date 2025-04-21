@@ -34,6 +34,7 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event.is_action_released("right_click"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_viewport().warp_mouse(_mouse_pos)
 
 # Handle Audio Streams
 func _player_step_audio():
